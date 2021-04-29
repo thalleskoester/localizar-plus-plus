@@ -18,6 +18,7 @@ class Controller {
 public:
   Controller(int arg_count, char **arg_vec);
   ~Controller();
+  void init();
 };
 
 } // namespace Grep
