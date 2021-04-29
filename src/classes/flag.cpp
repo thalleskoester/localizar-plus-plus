@@ -13,4 +13,14 @@ void Flag::setStatus(bool status) { this->status = status; }
 
 bool Flag::getStatus() const { return this->status; }
 
+bool Flag::verify(const string &param) const {
+  for (const string &flag_param : this->params) {
+    if (flag_param == param) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 } // namespace Grep
