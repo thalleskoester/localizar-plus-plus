@@ -20,4 +20,6 @@ FlagsManager::~FlagsManager() {
   delete this->flags;
 }
 
+void FlagsManager::addFlag(Flag *flag) { this->flags->push_back(flag); }
+
 } // namespace Grep
