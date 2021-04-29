@@ -30,6 +30,7 @@ public:
   ~FlagsManager();
 
   void addFlag(Flag *flag);
+  void parseFlagsFromArgs(bool debug);
   bool checkIfFlagsExists(const Flag *flag);
   bool checkIfHelpFlagExists();
   bool checkIfDebugFlagExists();
