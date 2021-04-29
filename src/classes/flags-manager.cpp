@@ -2,7 +2,13 @@
 // Created by THALLES on 22/04/2021.
 //
 
+#include <iostream>
+
 #include "flags-manager.h"
+#include "flags.h"
+
+using std::cout;
+using std::endl;
 
 namespace Grep {
 
@@ -24,5 +30,26 @@ FlagsManager::~FlagsManager() {
 }
 
 void FlagsManager::addFlag(Flag *flag) { this->flags->push_back(flag); }
+
+bool FlagsManager::checkIfFlagsExists(const Flag *flag) {
+  for (int i = 1; i < this->argc; ++i) {
+    if (flag->verify(this->argv[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+
+bool FlagsManager::checkMinArgs(bool debug) {
+  if (this->argc >= FlagsManager::MIN_ARGS) {
+    return true;
+  }
+
+  if (debug) {
+    cout << "[PARSE] Invalid usage!";
+  }
+
+  return false;
+}
 
 } // namespace Grep
