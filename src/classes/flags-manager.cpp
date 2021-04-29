@@ -19,6 +19,11 @@ FlagsManager::FlagsManager(int arg_count, char **arg_vec)
 
   this->addFlag(Flags::debug());
   this->addFlag(Flags::help());
+  this->addFlag(Flags::caseSensitive());
+  this->addFlag(Flags::count());
+  this->addFlag(Flags::lineNumber());
+  this->addFlag(Flags::occurrences());
+  this->addFlag(Flags::output());
 }
 
 FlagsManager::~FlagsManager() {
