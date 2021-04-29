@@ -24,7 +24,7 @@ public:
   bool verify(const string &param) const;
   void setStatus(bool status = true);
   bool getStatus() const;
-
+  string getName() const;
 };
 
 } // namespace Grep
