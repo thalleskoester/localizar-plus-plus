@@ -11,7 +11,8 @@ namespace Grep {
 
 class Flags {
 public:
-
+  static Flag *debug();
+  static Flag *help();
 };
 
 }
