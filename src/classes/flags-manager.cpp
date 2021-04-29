@@ -40,6 +40,23 @@ bool FlagsManager::checkIfFlagsExists(const Flag *flag) {
   return false;
 }
 
+bool FlagsManager::checkIfDebugFlagExists() {
+  auto *debugObj = this->flags->at(FlagsManager::FLAG_DEBUG);
+
+  if (FlagsManager::checkIfFlagsExists(debugObj)) {
+    debugObj->setStatus();
+    ++this->active_flags;
+    return true;
+  }
+
+  return false;
+}
+
+bool FlagsManager::checkIfHelpFlagExists() {
+  return FlagsManager::checkIfFlagsExists(
+      this->flags->at(FlagsManager::FLAG_HELP));
+}
+
 bool FlagsManager::checkMinArgs(bool debug) {
   if (this->argc >= FlagsManager::MIN_ARGS) {
     return true;
