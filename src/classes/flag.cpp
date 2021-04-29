@@ -13,6 +13,8 @@ void Flag::setStatus(bool status) { this->status = status; }
 
 bool Flag::getStatus() const { return this->status; }
 
+string Flag::getName() const { return this->name; }
+
 bool Flag::verify(const string &param) const {
   for (const string &flag_param : this->params) {
     if (flag_param == param) {
