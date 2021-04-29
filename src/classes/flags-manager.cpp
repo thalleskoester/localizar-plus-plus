@@ -32,6 +32,16 @@ FlagsManager::~FlagsManager() {
 
 void FlagsManager::addFlag(Flag *flag) { this->flags->push_back(flag); }
 
+void FlagsManager::displayHelp() {
+  cout << "----- USAGE ------" << endl;
+  cout << "\t" << this->argv[0] << " <options> <search_term> <paths>" << endl;
+  cout << "---- OPTIONS -----" << endl;
+
+  for (auto *flag : *this->flags) {
+    cout << "\t" << flag->getUsage() << endl;
+  }
+}
+
 void FlagsManager::parseFlagsFromArgs(bool debug) {
   if (debug) {
     cout << "[PARSER] Parsing started..." << endl;
