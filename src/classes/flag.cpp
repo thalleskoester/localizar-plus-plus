@@ -15,6 +15,10 @@ bool Flag::getStatus() const { return this->status; }
 
 string Flag::getName() const { return this->name; }
 
+string Flag::getUsage() const {
+  return this->joinParams() + " - " + this->desc;
+}
+
 string Flag::joinParams() const {
   string buf{this->params.at(0)};
 
