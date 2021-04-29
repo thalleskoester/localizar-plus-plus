@@ -9,6 +9,7 @@
 
 using std::cout;
 using std::endl;
+using std::to_string;
 
 namespace Grep {
 
@@ -30,6 +31,30 @@ FlagsManager::~FlagsManager() {
 }
 
 void FlagsManager::addFlag(Flag *flag) { this->flags->push_back(flag); }
+
+void FlagsManager::parseFlagsFromArgs(bool debug) {
+  if (debug) {
+    cout << "[PARSER] Parsing started..." << endl;
+  }
+
+  for (size_t i = 2; i < this->flags->size(); ++i) {
+    auto *flagObj = this->flags->at(i);
+
+    if (FlagsManager::checkIfFlagsExists(flagObj)) {
+      flagObj->setStatus();
+      ++this->active_flags;
+    }
+
+    if (debug) {
+      cout << "[PARSER] Flag: " << flagObj->getName()
+           << " - Status: " << to_string(flagObj->getStatus()) << endl;
+    }
+  }
+
+  if (debug) {
+    cout << "[PARSER] Parsing started..." << endl;
+  }
+}
 
 bool FlagsManager::checkIfFlagsExists(const Flag *flag) {
   for (int i = 1; i < this->argc; ++i) {
