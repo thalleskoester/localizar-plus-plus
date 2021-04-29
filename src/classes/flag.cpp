@@ -15,6 +15,16 @@ bool Flag::getStatus() const { return this->status; }
 
 string Flag::getName() const { return this->name; }
 
+string Flag::joinParams() const {
+  string buf{this->params.at(0)};
+
+  for (size_t i = 1; i < this->params.size(); ++i) {
+    buf += ", " + this->params.at(i);
+  }
+
+  return buf;
+}
+
 bool Flag::verify(const string &param) const {
   for (const string &flag_param : this->params) {
     if (flag_param == param) {
