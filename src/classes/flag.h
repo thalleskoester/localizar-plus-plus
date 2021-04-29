@@ -21,6 +21,7 @@ class Flag {
 
 public:
   Flag(string name, string desc, vector<string> params);
+  bool verify(const string &param) const;
   void setStatus(bool status = true);
   bool getStatus() const;
 
