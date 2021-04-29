@@ -27,6 +27,7 @@ public:
   void setStatus(bool status = true);
   bool getStatus() const;
   string getName() const;
+  string getUsage() const;
 };
 
 } // namespace Grep
