@@ -31,6 +31,8 @@ public:
 
   void addFlag(Flag *flag);
   bool checkIfFlagsExists(const Flag *flag);
+  bool checkIfHelpFlagExists();
+  bool checkIfDebugFlagExists();
   bool checkMinArgs(bool debug);
 };
 
