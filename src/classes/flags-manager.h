@@ -28,6 +28,8 @@ public:
 
   FlagsManager(int argc, char **argv);
   ~FlagsManager();
+
+  void addFlag(Flag *flag);
 };
 
 } // namespace Grep
