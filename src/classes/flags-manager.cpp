@@ -9,6 +9,9 @@ namespace Grep {
 FlagsManager::FlagsManager(int arg_count, char **arg_vec)
     : argc{arg_count}, argv{arg_vec}, active_flags{0}, flags{nullptr} {
   this->flags = new vector<Flag *>();
+
+  this->addFlag(Flags::debug());
+  this->addFlag(Flags::help());
 }
 
 FlagsManager::~FlagsManager() {
