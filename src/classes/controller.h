@@ -13,6 +13,8 @@ class Controller {
   bool debug;
   FlagsManager *flagsManager;
 
+  bool parseArguments();
+
 public:
   Controller(int arg_count, char **arg_vec);
   ~Controller();
