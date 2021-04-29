@@ -30,6 +30,8 @@ public:
   ~FlagsManager();
 
   void addFlag(Flag *flag);
+  bool checkIfFlagsExists(const Flag *flag);
+  bool checkMinArgs(bool debug);
 };
 
 } // namespace Grep
