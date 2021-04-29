@@ -19,6 +19,8 @@ class Flag {
   vector<string> params;
   bool status;
 
+  string joinParams() const;
+
 public:
   Flag(string name, string desc, vector<string> params);
   bool verify(const string &param) const;
